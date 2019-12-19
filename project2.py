@@ -1,21 +1,6 @@
-#Q
-
-'''Salt water makes up 97.5% of the total water concentration on Earth. It is hit by every factor that affects the Earth, from heat, to pollution, to invasive species affecting an existing ecosystem. We chose to study how heat added to the ocean impacts its volume, with particular regards to how the density changes as water temperature does. Our question was how much does salt water expand as it absorbs heat, and how does that expansion impact sea level rise?     
-
-M
-
-For our model parameters we had salinity, starting temperature, mass, surface area, and the net power put into each square meter of water. We found values for the surface area, mass and average salinity and temperature of the upper 2000m ocean since that layer changes temperature the most drastically, thus its density changes the most as well. '''
-
-
 import modsim
 import csv
 coeffile = 'coefficientofthermalexpansion.csv'
-
-
-'''In each step of the model we update the time and energy based on the parameters from the beginning. We found the change in temperature based on the equation ΔU = mcΔt and using the change in energy calculated from before. Then, we found the coefficient of thermal expansion for the specific salinity and temperature of the water, which is represented by the value ‘beta’. Using the beta value we calculate the change in volume and change in density of the sea water.
-
-We keep track of the temperature, volume, and density changes over time throughout the hundred year span of our model. We used the volume changes and an approximate value to correlate the volume change to sea level rise. '''
-
 
 def step(params,state):
     '''one step of the simulation'''
@@ -72,14 +57,3 @@ for i in range(params[length_of_simulation]):
 plt.plot(energy,temp)
 plt.y_label('temperature (degrees celcius)')
 plt.x_label('energy (joules)')
-
-'''R 
-
-We decided to have separate graphs for volume, temperature, density, and sea level rise, with all our dependant variables being accounted for in relation to time. We accounted for time in years, and with time increasing, our model showed volume, ocean temperature, and sea level rising at a close to linear rate, while density decreased at a similar rate. 
-
-
-
-I
-
-
-In general, our results seem to align with the goal of our model fairly well. Volume, temperature, and sea level all rise with respect to time, while density decreases. Some of our values are slightly deviated from what we expected, such as our temperature value being so high, but we have to take human error into account. We used multiple different websites with multiple values to get the data for our project, which is a very plausible solution to our weird values.'''
